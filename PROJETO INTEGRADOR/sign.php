@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (file_put_contents($file, $finalData)) {
         $_SESSION['username'] = $username; // Set session variable
-        header("Location: home.php?username=" . urlencode($username));
+        header("Location: login.php?username=" . urlencode($username));
         exit();
     } else {
         echo "<div class='alert alert-danger'>Erro ao cadastrar. Tente novamente.</div>";

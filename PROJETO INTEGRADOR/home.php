@@ -1,11 +1,12 @@
 <?php
 session_start(); // Start the session
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['loggedInUser'])) {
     header('Location: sign.php');
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -240,7 +241,7 @@ if (!isset($_SESSION['username'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="sign.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="carregamentohome.html">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
