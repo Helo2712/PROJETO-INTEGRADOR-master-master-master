@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Boostrap para responsividade -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="shortcut icon" href="img/favicon-16x16_outro.png" type="image/x-icon" />
+    <title>Fazer sistema</title>
+
+    <style>
+       .navbar-brand {
+            font-size: 25px;
+            color: #1693a5;
+            font-weight: bolder;
+        }
+
+        .navbar-brand:hover {
+            color: #7ececa;
+        }
+
+        /* CSS customizado */
+        body {
+            background-color:#f3f3f3;
+        }
+
+        /* Formulário centralizado com espaçamento adequado */
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto; /* Espaçamento superior */
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Espaçamento entre grupos */
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        /* Customização do botão */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8ae3f3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #8eb3db;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar responsiva -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Aqui é a cor padrão do Bootstrap -->
+        <div class="container-fluid">
+            <a class="navbar-brand">SY SALE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="carregamentohome.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">Opções</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="carregamento4.html">Sistema</a></li>
+                          <li><a class="dropdown-item" href="carreagamento3.html">Relatar problemas</a></li>
+                          <li><a class="dropdown-item" href="carregamento5.html">Faça aqui seu sistema</a></li>
+                          <li><a class="dropdown-item" href="carregamento6.html">Acessebilidade</a></li>
+                          <li><a class="dropdown-item" href="carregamento8.html">Banco de dados</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="form-container">
+            <form id="meuFormulario" action="carregamento4.html" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+                <div class="form-group">
+                    <label class="form-label">1 - Sobre o que seria seu site/mobile? Para qual área ele será destinado?</label>
+                    <textarea id="pergunta1" class="form-control" name="pergunta1" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">2 - Quais as principais características necessárias para atender suas necessidades?</label>
+                    <textarea id="pergunta2" class="form-control" name="pergunta2" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">3 - Há algo especial ou inovador que gostaria de implementar no site/mobile?</label>
+                    <textarea id="pergunta3" class="form-control" name="pergunta3" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4 - Quais as principais dificuldades encontradas para seu negócio? Há algum concorrente do seu projeto? Se sim, quem seria?</label>
+                    <textarea id="pergunta4" class="form-control" name="pergunta4" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">5 - Quais os serviços necessários? Cite o que constará nele: atributos, detalhes, etc.</label>
+                    <textarea id="pergunta5" class="form-control" name="pergunta5" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">6 - Há algum folder ou apresentação com mais detalhes?</label>
+                    <div class="custom-file">
+                        <input type="file" class="file-input" id="file1" name="file">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">7 - Quais os principais objetivos do site/mobile? Cadastros, consultas, informativo, etc.?</label>
+                    <textarea id="pergunta7" class="form-control" name="pergunta7" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">8 - Há algum elemento que precisa ser verificado, isto é, que não possa aparecer em nenhum conteúdo?</label>
+                    <textarea id="pergunta8" class="form-control" name="pergunta8" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">9 - Há algum exemplo de como queira que fique seu sistema?</label>
+                    <div class="custom-file">
+                        <input type="file" class="file-input" id="file2" name="file">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">10 - Gostaria de integrar redes sociais ao site? Se sim, por favor, indique-as abaixo.</label>
+                    <textarea id="pergunta10" class="form-control" name="pergunta10" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">11 - Há um slogan da empresa? Se sim, insira-o abaixo.</label>
+                    <textarea id="pergunta11" class="form-control" name="pergunta11" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">12 - Há algum elemento onde seu slogan ficará melhor posicionado no site/mobile?</label>
+                    <textarea id="pergunta12" class="form-control" name="pergunta12" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">13 - Há alguma ideia de paletas de cores para estilizar o sistema?</label>
+                    <div class="custom-file">
+                        <input type="file" class="file-input" id="file3" name="file">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">14 - Quais são os diferenciais? Existe alguma missão, valor ou visão que você quer manter?</label>
+                    <textarea id="pergunta14" class="form-control" name="pergunta14" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">15 - Qual é seu público alvo? Qual o tom de comunicação desejado: divertido, sério, profissional, técnico?</label>
+                    <textarea id="pergunta15" class="form-control" name="pergunta15" rows="3"></textarea>
+                </div>
+
+
+                <!-- Restante do formulário aqui -->
+
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script do Bootstrap para interações com JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de validação -->
+    <script>
+        function validarFormulario() {
+            // IDs dos campos a serem validados
+            const camposTexto = [
+                'pergunta1', 'pergunta2', 'pergunta3', 'pergunta4',
+                'pergunta5', 'pergunta7', 'pergunta8', 'pergunta10',
+                'pergunta11', 'pergunta12', 'pergunta14', 'pergunta15'
+            ];
+
+            const camposArquivo = ['file1', 'file2', 'file3'];
+
+            // Validar campos de texto
+            for (let i = 0; i < camposTexto.length; i++) {
+                const campo = document.getElementById(camposTexto[i]);
+                if (campo.value.trim() === '') {
+                    alert('Por favor, preencha todos os campos antes de enviar.');
+                    campo.focus();
+                    return false;
+                }
+            }
+
+            // Validar campos de arquivo
+            for (let i = 0; i < camposArquivo.length; i++) {
+                const campo = document.getElementById(camposArquivo[i]);
+                if (campo.files.length === 0) {
+                    alert('Por favor, selecione todos os arquivos antes de enviar.');
+                    campo.focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
+

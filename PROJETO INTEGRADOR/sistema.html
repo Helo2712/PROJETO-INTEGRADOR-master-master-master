@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/favicon-16x16_outro.png" type="image/x-icon" />
+
+    <!-- Título -->
+    <title>Sistema</title>
+
+    <!-- Estilos Personalizados -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            color: #1693a5;
+            font-weight: bold;
+        }
+
+        .navbar-brand:hover {
+            color: #7ececa;
+        }
+
+        /* Estilos para responsividade */
+        .sistema {
+            border: 2px solid rgb(131, 176, 206);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        .foto {
+            max-width: 80px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .progress {
+            width: 100%;
+            background-color: #dff2f5;
+        }
+
+        .progress-bar {
+            background-color: #7ececa;
+        }
+
+        /* Espaçamento entre elementos */
+        .form-check {
+            margin-bottom: 10px;
+        }
+
+        /* Ajustes para dispositivos menores */
+        @media (max-width: 768px) {
+            .sistema {
+                padding: 10px;
+                flex-direction: column;
+            }
+            
+            .navbar {
+                flex-direction: column;
+            }
+        }
+        .form-check{
+            padding-left: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar Responsiva -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">SY SALE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="carregamentohome.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Opções</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="carregamento4.html">Sistema</a></li>
+              <li><a class="dropdown-item" href="carreagamento3.html">Relatar problemas</a></li>
+              <li><a class="dropdown-item" href="carregamento5.html">Faça aqui seu sistema</a></li>
+              <li><a class="dropdown-item" href="carregamento6.html">Acessebilidade</a></li>
+              <li><a class="dropdown-item" href="carregamento8.html">Banco de dados</a></li>
+            </ul>
+          </li>
+
+      </div>
+    </div>
+  </nav>
+  <br><br>
+<!-- Entrega do Sistema -->
+<div class="sistema">
+    Andamento do sistema:
+    <img src="Alpha+Fumigation+Services+Pte+Ltd.png" class="foto" alt="Foto do Sistema">
+    <div class="progress" role="progressbar" aria-label="Progresso do Sistema" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar w-75"></div>
+    </div>
+</div>
+<br><br>
+<!-- Seção de Erros -->
+<div class="sistema">
+    Erros que estão sendo corrigidos:
+    <img src="erro.png" class="foto" alt="Foto de Erros">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;"> 
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault"> Desempenho Lento </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked>
+            <label class="form-check-label" para="flexCheckChecked"> Integração de Sistemas </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminateDisabled" disabled>
+            <label class="form-check-label" para="flexCheckIndeterminateDisabled"> Gerenciamento de Dados </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+            <label para="flexCheckDefault"> Manutenção e Atualizações </label>
+        </div>
+    </div>
+</div>
+
+<!-- Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
