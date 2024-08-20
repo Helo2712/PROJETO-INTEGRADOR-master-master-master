@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SY SALE - Sobre Nós</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/logo2 (1) (1).png" type="image/x-icon" />
+
+    <!-- SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- CUSTOM STYLES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            color: #1693a5;
+            font-weight: bolder;
+        }
+
+        .navbar-brand:hover {
+            color: #7ececa;
+        }
+
+        .navbar-brand:visited {
+            color: #1693a5;
+        }
+
+        input:hover::placeholder {
+            color: #7ececa;
+        }
+
+        button[type="submit"] {
+            background-color: #7ececa;
+            border-color: #7ececa;
+            color: #1693a5;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1693a5;
+            color: #7ececa;
+            border-color: #7ececa;
+        }
+
+        .about-us-section {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #e9f7fa;
+            border-radius: 10px;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .about-us-title {
+            font-size: 24px;
+            color: #0f8a91;
+            margin-bottom: 20px;
+            flex-basis: 100%;
+        }
+
+        .about-us-text {
+            font-size: 18px;
+            color: #333;
+            flex-basis: 100%;
+        }
+
+        .about-us-image {
+            flex-basis: 100px; /* Define a largura da imagem */
+            margin-right: 20px; /* Espaçamento entre as imagens */
+            border-radius: 50%; /* Arredondamento da borda para deixar a imagem redonda */
+            overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites */
+            height: 100px; /* Definindo o tamanho fixo da altura da imagem */
+            width: 100px; /* Definindo o tamanho fixo da largura da imagem */
+        }
+
+        .about-us-image img {
+            width: 100%; /* Garante que a imagem ocupe 100% do espaço do contêiner pai */
+            height: 100%; /* Garante que a imagem ocupe 100% do espaço do contêiner pai */
+            display: block; /* Remove espaços extras ao redor da imagem */
+            border-radius: 50%; /* Arredondamento da borda para deixar a imagem redonda */
+            object-fit: cover; /* Garante que a imagem preencha o contêiner de maneira proporcional */
+        }
+
+        .about-us-person {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .about-us-info {
+            flex-grow: 1;
+            margin-right: 100px;
+        }
+
+        .social-icons a {
+            color: #0f8a91;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .social-icons a:hover {
+            color: #7ececa;
+        }
+
+        .back-arrow {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #1693a5;
+            cursor: pointer;
+        }
+
+        .back-arrow:hover {
+            color: #7ececa;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SY SALE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Aqui você pode adicionar outros itens de navegação, se necessário -->
+            </div>
+        </div>
+    </nav>
+
+    <i class="bi bi-arrow-left-circle-fill back-arrow" onclick="history.back()"></i>
+
+    <div class="container">
+        <div class="about-us-section">
+            <h2 class="about-us-title">Sobre Nós</h2>
+            <div class="about-us-text">
+                <p>
+                    Somos a SY SALE, especializados no desenvolvimento de aplicativos desktop personalizados para diversas necessidades empresariais. Nosso compromisso é fornecer soluções robustas que integram funcionalidades avançadas como consultas a bancos de dados e desenvolvimento ágil de sistemas. Contamos com uma equipe dedicada pronta para oferecer suporte rápido e eficiente, garantindo a satisfação e o sucesso de nossos clientes.
+                </p>
+                <p>
+                    Estamos aqui para transformar suas ideias em realidade digital, oferecendo um serviço de qualidade e confiança. Entre em contato conosco para saber mais sobre como podemos ajudar a impulsionar o seu negócio através de soluções inovadoras e personalizadas.
+                </p>
+            </div>
+
+            <div class="about-us-person">
+                <div class="about-us-image">
+                    <img src="img/WhatsApp Image 2024-05-19 at 21.52.09.jpeg" alt="Descrição da imagem">
+                </div>
+                <div class="about-us-info">
+                    <p>Heloise - backend e frontend</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-us-person">
+                <div class="about-us-image">
+                    <img src="img/maria.jpeg" alt="Descrição da imagem">
+                </div>
+                <div class="about-us-info">
+                    <p>Maria Eduarda - backend</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-us-person">
+                <div class="about-us-image">
+                    <img src="img/dani.jpeg" alt="Descrição da imagem">
+                </div>
+                <div class="about-us-info">
+                    <p>Daniela - backend e frontend</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-us-person">
+                <div class="about-us-image">
+                    <img src="img/gonçalo.jpeg" alt="Gonçalo">
+                </div>
+                <div class="about-us-info">
+                    <p>Gonçalo - backend</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+
+</body>
+
+</html>

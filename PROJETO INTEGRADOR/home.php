@@ -295,22 +295,6 @@ if (!isset($_SESSION['loggedInUser'])) {
 
       </div>
 
-      <div class="col-md-4 col-sm-12 marginCards">
-
-        <div class="card">
-          <img src="img/acessibility.svg" class="card-img-top  alturaImgsHome" alt="Banheira">
-          <div class="card-body alturaCardsHome">
-            <h5 class="card-title">Acessebilidade</h5>
-            <p class="card-text">Veja como ela
-              é incrementada no site e suas funcionalidade
-            </p>
-            <a href="carregamento6.html" class="btn btn-danger">Ver mais</a>
-          </div>
-        </div>
-
-      </div>
-
-
       <div class="col-md-4 col-sm-12  marginCards">
 
         <div class="card">

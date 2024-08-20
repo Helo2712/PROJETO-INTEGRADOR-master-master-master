@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SY SALE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #A0D5C2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-side {
+            background-color: #C5E4DF;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 400px;
+            height: auto;
+        }
+
+        .right-side {
+            background-color: #1C5959;
+            width: 60%;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #A0D5C2;
+        }
+
+        .welcome-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .welcome h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .welcome p {
+            margin: 10px 0;
+        }
+
+        .contact-info p, .social-media a {
+            margin-top: 60px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-media a img {
+            width: 30px;
+            height: auto;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="logo">
+                <img src="img/Preview.png" alt="SY SALE Logo">
+            </div>
+        </div>
+        <div class="right-side">
+            <nav>
+                <ul>
+                    <li><a href="login.php">Entrar</a></li>
+                    <li><a href="sobrenos.html">Sobre nos</a></li>
+                    <li><a href="nssServicos.html">Nossos Serviços</a></li>
+                    <li><a href="acebilidade.html">Acessebilidade</a></li>
+                </ul>
+            </nav>
+            <div class="welcome-container">
+                <div class="welcome">
+                    <h2>Seja bem-vindo!</h2>
+                    <p>Desde a nossa abertura, nos tornamos mestres em nossa arte. Nosso compromisso com produtos de qualidade, serviços excepcionais e atendimento ao cliente incomparável faz com que nossa comunidade volte sempre.</p>
+                    <div class="contact-info">
+                        <p>Email: info@mysite.com</p>
+                        <p>Telefone: 12456789086</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/?locale=pt_BR"><img src="img/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="img/logotipo-do-instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="img/sinal-do-twitter.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Página carregada com sucesso!");
+        });
+    </script>
+</body>
+</html>

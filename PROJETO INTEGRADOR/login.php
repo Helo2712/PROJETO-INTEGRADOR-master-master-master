@@ -1,33 +1,51 @@
 <?php
-        session_start(); // Inicia a sessão
+session_start(); // Inicia a sessão
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+// Configuração do banco de dados
+$servername = "143.106.241.3";
+$username = "cl202234";
+$password = "cl*27122006";
+$dbname = "cl202234";
 
-            $file = 'users.json';
-            if (file_exists($file)) {
-                $currentData = file_get_contents($file);
-                $arrayData = json_decode($currentData, true);
+// Conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-                if ($arrayData === null) {
-                    echo "<div class='alert alert-danger'>Erro ao decodificar JSON.</div>";
-                } else {
-                    foreach ($arrayData as $user) {
-                        if ($user['email'] === $email && $user['password'] === $password) {
-                            $_SESSION['loggedInUser'] = $user['username']; // Define o usuário logado na sessão
-                            header('Location: home.php?username=' . urlencode($user['username'])); // Redireciona para a página home.php com o nome de usuário como parâmetro
-                            exit();
-                        }
-                        
-                    }
-                    echo "<div class='alert alert-danger'>Email ou senha incorretos.</div>"; // Exibe mensagem de erro se as credenciais estiverem incorretas
-                }
-            } else {
-                echo "<div class='alert alert-danger'>Arquivo de usuários não encontrado.</div>"; // Exibe mensagem de erro se o arquivo de usuários não for encontrado
-            }
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Prepara a query para selecionar o usuário com o email e senha fornecidos
+    $sql = "SELECT usuario, senha FROM projetInt WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        
+        // Verifica se a senha fornecida corresponde à senha armazenada no banco de dados
+        if ($user['senha'] === $password) { 
+            $_SESSION['loggedInUser'] = $user['usuario']; // Define o usuário logado na sessão
+            header('Location: home.php?username=' . urlencode($user['usuario'])); // Redireciona para a página home.php
+            exit();
+        } else {
+            echo "<div class='alert alert-danger'>Senha incorreta.</div>"; // Exibe mensagem de erro se a senha estiver incorreta
         }
-        ?>
+    } else {
+        echo "<div class='alert alert-danger'>Email não encontrado.</div>"; // Exibe mensagem de erro se o email não for encontrado
+    }
+
+    // Fecha a declaração e a conexão
+    $stmt->close();
+    $conn->close();
+}
+?>
 
 
 
