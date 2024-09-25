@@ -1,51 +1,45 @@
 <?php
-session_start(); // Inicia a sessão
+session_start();
 
-// Configuração do banco de dados
-$servername = "143.106.241.3";
-$username = "cl202234";
-$password = "cl*27122006";
-$dbname = "cl202234";
+// Inclui o arquivo de conexão
+require 'db_connect.php';  // Certifique-se de que o caminho está correto
 
-// Conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+$loginError = ''; // Variável para armazenar a mensagem de erro
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Prepara a query para selecionar o usuário com o email e senha fornecidos
-    $sql = "SELECT usuario, senha FROM projetInt WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
+    // Prepara a query para selecionar o usuário com o email fornecido
+    $sql = "SELECT usuario, senha, tipo FROM projetInt WHERE email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(1, $email);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
-        // Verifica se a senha fornecida corresponde à senha armazenada no banco de dados
-        if ($user['senha'] === $password) { 
-            $_SESSION['loggedInUser'] = $user['usuario']; // Define o usuário logado na sessão
-            header('Location: home.php?username=' . urlencode($user['usuario'])); // Redireciona para a página home.php
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user) {
+        if ($user['senha'] === $password) {
+            $_SESSION['loggedInUser'] = $user['usuario'];
+            $_SESSION['userType'] = $user['tipo']; // Salva o tipo de usuário na sessão
+            header('Location: home.php?username=' . urlencode($user['usuario']));
             exit();
         } else {
-            echo "<div class='alert alert-danger'>Senha incorreta.</div>"; // Exibe mensagem de erro se a senha estiver incorreta
+            $loginError = 'Senha incorreta.';
         }
     } else {
-        echo "<div class='alert alert-danger'>Email não encontrado.</div>"; // Exibe mensagem de erro se o email não for encontrado
+        $loginError = 'Email não encontrado.';
     }
+    
 
     // Fecha a declaração e a conexão
-    $stmt->close();
-    $conn->close();
+    $stmt = null;
+    $conn = null;
 }
+
+
+
 ?>
+
 
 
 
@@ -55,22 +49,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="img/favicon-16x16_outro.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="img\logo-removebg-preview.png" type="image/x-icon" />
 
     <title>LOGIN</title>
 
-    <style type="text/css">
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+        @font-face {
+        font-family: 'Space Grotesk';
+        src: url('/caminho/para/SpaceGrotesk-Regular.ttf') format('truetype'),
+            url('/caminho/para/SpaceGrotesk-Medium.ttf') format('truetype'),
+            url('/caminho/para/SpaceGrotesk-SemiBold.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
 
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             width: 100%;
             height: 100vh;
             background: linear-gradient(to right, #45b5c4 0%, #45b5c4 50%, whitesmoke 50%, whitesmoke 100%);
@@ -79,20 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center;
             align-items: center;
         }
-
-        div[class="um"] {
+        .um {
             width: 40%;
             height: 100vh;
         }
-
-        div[class="dois"] {
+        .dois {
             width: 50%;
             height: 100vh;
             padding-left: 20%;
             padding-top: 5%;
         }
-
-        div[class="col-md-4"] {
+        .col-md-4 {
             width: 70%;
         }
 
@@ -102,15 +96,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding-left: 10vh;
             padding-right: 10vh;
         }
-
-        button[class="btn btn-primary"] {
+        .btn-primary {
             width: 50%;
             margin-left: 10%;
             background-color: #c7ede8;
             border-color: whitesmoke;
         }
-
-        button[class="btn btn-primary"]:hover {
+        .btn-primary:hover {
             background-color: #7ececa;
             border-color: #7ececa;
         }
@@ -132,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         a:hover {
             color: #45b5c4;
         }
-
+        
         a:active {
             color: #c7ede8;
         }
@@ -150,6 +142,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Entrar</h1>
             <h5>Não possui uma conta? <a href="sign.php">Cadastre-se</a></h5>
             <br>
+
+            <!-- Exibe a mensagem de erro acima dos campos -->
+            <?php if (!empty($loginError)): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $loginError; ?>
+                </div>
+            <?php endif; ?>
+
             <div class="col-md-4">
                 <label for="loginEmail" class="form-label">Email</label>
                 <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Email..." required>
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </div>
 
-    <script type="text/javascript">
+    <script>
         (() => {
             'use strict'
 

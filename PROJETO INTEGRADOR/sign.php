@@ -82,9 +82,17 @@ $conn->close();
 
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+        @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/caminho/para/SpaceGrotesk-Regular.ttf') format('truetype'),
+         url('/caminho/para/SpaceGrotesk-Medium.ttf') format('truetype'),
+         url('/caminho/para/SpaceGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             width: 100%;
             height: 100vh;
             background: linear-gradient(to right, #45b5c4 0%, #45b5c4 50%, whitesmoke 50%, whitesmoke 100%);
@@ -229,14 +237,14 @@ $conn->close();
                     Você deve aceitar antes de enviar
                 </div>
             </div>
-        </div>
+    </div>
 
         <div class="col-12">
             <button class="btn btn-primary" type="submit">CADASTRAR</button>
         </div>
     </form>
 </div>
-
+<br><br>
 <script type="text/javascript">
     (() => {
         'use strict'

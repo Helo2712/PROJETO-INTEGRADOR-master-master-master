@@ -1,10 +1,14 @@
 <?php
-session_start(); // Start the session
+session_start();
 
+// Verifica se o usuário está logado
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: sign.php');
     exit();
 }
+
+// Verifica o tipo de usuário (admin ou user)
+$isAdmin = isset($_SESSION['userType']) && $_SESSION['userType'] === 'admin';
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,7 @@ if (!isset($_SESSION['loggedInUser'])) {
   integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
   crossorigin="anonymous"></script>
 
-  <link rel="shortcut icon" href="img/favicon-16x16_outro.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="img\logo-removebg-preview.png" type="image/x-icon" />
   <title>Home</title>
 
   <script>
@@ -52,10 +56,17 @@ if (!isset($_SESSION['loggedInUser'])) {
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 
- 
+    @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/caminho/para/SpaceGrotesk-Regular.ttf') format('truetype'),
+         url('/caminho/para/SpaceGrotesk-Medium.ttf') format('truetype'),
+         url('/caminho/para/SpaceGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     .navbar-brand {
@@ -267,17 +278,7 @@ if (!isset($_SESSION['loggedInUser'])) {
   <br>
   <div class="container homeContainer">
 
-    <div class="row">
-      <div class="col-12">
-        <h6 class="display-6"><i class="bi bi-house-door"></i>Bem-vindo(a),<span class="navbar-text ms-auto">
-                    <?php
-                    if (isset($_GET['username'])) {
-                        echo htmlspecialchars($_GET['username']) . "!";
-                    }
-                    ?>
-                </span></h6>
-      </div>
-    </div>
+
 
 
     <div class="row gap-0 row-gap-4">
@@ -321,18 +322,24 @@ if (!isset($_SESSION['loggedInUser'])) {
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-12  marginCards">
+      <div class="container homeContainer">
+    <div class="row gap-0 row-gap-4">
+        <!-- Outros cards -->
 
-        <div class="card" class="cardSistema">
-          <img src="img/system.svg" class="card-img-top alturaImgsHome" alt="Tapete">
-          <div class="card-body alturaCardsHome">
-            <h5 class="card-title">Sistema</h5>
-            <p class="card-text">Faça seu sistema aqui!</p><br>
-            <a href="carregamento5.html" class="btn btn-danger">Ver mais</a>
-          </div>
-
-        </div>
-      </div>
+        <?php if ($isAdmin): ?>
+            <div class="col-md-4 col-sm-12 marginCards">
+                <div class="card">
+                    <img src="img/system.svg" class="card-img-top alturaImgsHome" alt="Sistema">
+                    <div class="card-body alturaCardsHome">
+                        <h5 class="card-title">Sistema</h5>
+                        <p class="card-text">Faça seu sistema aqui!</p><br>
+                        <a href="carregamento5.html" class="btn btn-danger">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
     </div>
 
 
